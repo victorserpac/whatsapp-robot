@@ -461,15 +461,22 @@
       //Click at Send Button
       eventFire(document.querySelector('span[data-icon="send"]'), 'click');
       start();
-    }, 30000);
+    }, 60000);
   }
 
-  var counter = 0;
+  let counter = 0;
+  const infinite = true;
 
   const start = () => {
     if (counter < messages.length) {
       sendMessage(messages[counter]);
       counter++;
+      return;
+    }
+
+    if (infinite) {
+      counter = 0;
+      start();
     }
   }
 
