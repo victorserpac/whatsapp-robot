@@ -460,20 +460,17 @@
     setTimeout(function() {      
       //Click at Send Button
       eventFire(document.querySelector('span[data-icon="send"]'), 'click');
-    }, 10000);
+      start();
+    }, 30000);
   }
 
-  const start = () => {
-    var counter = 0;
+  var counter = 0;
 
-    var teste = setInterval(function () {
-      if (counter < messages.length) {
-        sendMessage(messages[counter]);
-        counter++;
-      } else {
-        clearInterval(teste);
-      }
-    }, 60000);
+  const start = () => {
+    if (counter < messages.length) {
+      sendMessage(messages[counter]);
+      counter++;
+    }
   }
 
   start();
